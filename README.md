@@ -121,75 +121,75 @@
 
 | Endpoint                    | Method | Description                                      |
 |-----------------------------|--------|--------------------------------------------------|
-| `/api/books/`               | GET    | Get a list of all books                          |
-| `/api/books/{book_id}/`     | GET    | Get details of a specific book                   |
-| `/api/books/`               | POST   | Create a new book                                |
-| `/api/books/{book_id}/`     | PUT    | Update details of a specific book                |
-| `/api/books/{book_id}/`     | DELETE | Delete a specific book                           |
+| `/api/v1/books/`               | GET    | Get a list of all books                          |
+| `/api/v1/books/{book_id}/`     | GET    | Get details of a specific book                   |
+| `/api/v1/books/`               | POST   | Create a new book                                |
+| `/api/v1/books/{book_id}/`     | PUT    | Update details of a specific book                |
+| `/api/v1/books/{book_id}/`     | DELETE | Delete a specific book                           |
 
 ### Orders
 
 | Endpoint                    | Method | Description                                      |
 |-----------------------------|--------|--------------------------------------------------|
-| `/api/orders/`              | GET    | Get a list of all orders                         |
-| `/api/orders/{order_id}/`   | GET    | Get details of a specific order                  |
-| `/api/orders/`              | POST   | Place a new order                                |
-| `/api/orders/{order_id}/`   | PUT    | Update details of a specific order               |
-| `/api/orders/{order_id}/`   | DELETE | Cancel a specific order                          |
+| `/api/v1/orders/`              | GET    | Get a list of all orders                         |
+| `/api/v1/orders/{order_id}/`   | GET    | Get details of a specific order                  |
+| `/api/v1/orders/`              | POST   | Place a new order                                |
+| `/api/v1/orders/{order_id}/`   | PUT    | Update details of a specific order               |
+| `/api/v1/orders/{order_id}/`   | DELETE | Cancel a specific order                          |
 
 ### Payments
 
 | Endpoint                    | Method | Description                                      |
 |-----------------------------|--------|--------------------------------------------------|
-| `/api/payments/`            | GET    | Get a list of all payments                       |
-| `/api/payments/{payment_id}/`| GET    | Get details of a specific payment                |
-| `/api/payments/`            | POST   | Process a new payment                            |
-| `/api/payments/{payment_id}/`| PUT    | Update details of a specific payment             |
-| `/api/payments/{payment_id}/`| DELETE | Cancel a specific payment                        |
+| `/api/v1/payments/`            | GET    | Get a list of all payments                       |
+| `/api/v1/payments/{payment_id}/`| GET    | Get details of a specific payment                |
+| `/api/v1/payments/`            | POST   | Process a new payment                            |
+| `/api/v1/payments/{payment_id}/`| PUT    | Update details of a specific payment             |
+| `/api/v1/payments/{payment_id}/`| DELETE | Cancel a specific payment                        |
 
 ### Reviews
 
 | Endpoint                       | Method | Description                                      |
 |--------------------------------|--------|--------------------------------------------------|
-| `/api/books/{book_id}/reviews/` | GET    | Get reviews for a specific book                  |
-| `/api/books/{book_id}/reviews/` | POST   | Add a review for a specific book                 |
-| `/api/reviews/{review_id}/`     | GET    | Get details of a specific review                 |
-| `/api/reviews/{review_id}/`     | PUT    | Update details of a specific review              |
-| `/api/reviews/{review_id}/`     | DELETE | Delete a specific review                         |
+| `/api/v1/books/{book_id}/reviews/` | GET    | Get reviews for a specific book                  |
+| `/api/v1/books/{book_id}/reviews/` | POST   | Add a review for a specific book                 |
+| `/api/v1/reviews/{review_id}/`     | GET    | Get details of a specific review                 |
+| `/api/v1/reviews/{review_id}/`     | PUT    | Update details of a specific review              |
+| `/api/v1/reviews/{review_id}/`     | DELETE | Delete a specific review                         |
 
 ### Users
 
 | Endpoint                    | Method | Description                                      |
 |-----------------------------|--------|--------------------------------------------------|
-| `/api/users/`               | GET    | Get a list of all users                          |
-| `/api/users/{user_id}/`     | GET    | Get details of a specific user                   |
-| `/api/users/`               | POST   | Register a new user                              |
-| `/api/users/{user_id}/`     | PUT    | Update details of a specific user                |
-| `/api/users/{user_id}/`     | DELETE | Delete a specific user                           |
+| `/api/v1/users/`               | GET    | Get a list of all users                          |
+| `/api/v1/users/{user_id}/`     | GET    | Get details of a specific user                   |
+| `/api/v1/users/`               | POST   | Register a new user                              |
+| `/api/v1/users/{user_id}/`     | PUT    | Update details of a specific user                |
+| `/api/v1/users/{user_id}/`     | DELETE | Delete a specific user                           |
 
 ### Genres
 
 | Endpoint                    | Method | Description                                      |
 |-----------------------------|--------|--------------------------------------------------|
-| `/api/genres/`              | GET    | Get a list of all genres                         |
-| `/api/genres/`              | POST   | Create a new genre                               |
-| `/api/genres/{genre_id}/`   | PUT    | Update details of a specific genre               |
-| `/api/genres/{genre_id}/`   | DELETE | Delete a specific genre                          |
+| `/api/v1/genres/`              | GET    | Get a list of all genres                         |
+| `/api/v1/genres/`              | POST   | Create a new genre                               |
+| `/api/v1/genres/{genre_id}/`   | PUT    | Update details of a specific genre               |
+| `/api/v1/genres/{genre_id}/`   | DELETE | Delete a specific genre                          |
 
 ### Publishers
 
 | Endpoint                       | Method | Description                                      |
 |--------------------------------|--------|--------------------------------------------------|
-| `/api/publishers/`              | GET    | Get a list of all publishers                     |
-| `/api/publishers/`              | POST   | Create a new publisher                           |
-| `/api/publishers/{publisher_id}/`| PUT    | Update details of a specific publisher           |
-| `/api/publishers/{publisher_id}/`| DELETE | Delete a specific publisher                      |
+| `/api/v1/publishers/`              | GET    | Get a list of all publishers                     |
+| `/api/v1/publishers/`              | POST   | Create a new publisher                           |
+| `/api/v1/publishers/{publisher_id}/`| PUT    | Update details of a specific publisher           |
+| `/api/v1/publishers/{publisher_id}/`| DELETE | Delete a specific publisher                      |
 
 ### Languages
 
 | Endpoint                     | Method | Description                                      |
 |------------------------------|--------|--------------------------------------------------|
-| `/api/languages/`            | GET    | Get a list of all languages                      |
-| `/api/languages/`            | POST   | Create a new language                            |
-| `/api/languages/{lang_id}/`  | PUT    | Update details of a specific language            |
-| `/api/languages/{lang_id}/`  | DELETE | Delete a specific language                       |
+| `/api/v1/languages/`            | GET    | Get a list of all languages                      |
+| `/api/v1/languages/`            | POST   | Create a new language                            |
+| `/api/v1/languages/{lang_id}/`  | PUT    | Update details of a specific language            |
+| `/api/v1/languages/{lang_id}/`  | DELETE | Delete a specific language                       |
