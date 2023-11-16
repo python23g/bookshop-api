@@ -1,100 +1,133 @@
 # bookshop
 
-## API docs
+## project file structure
 
-### Endpoints
-
-cutomer table
-
-1. create customer - `api/v1/customers/`
-2. delete customer by pk - `api/v1/customers/{id}/`
-3. update customer by pk - `api/v1/customers/{id}/`
-4. get customer by pk - `api/v1/customers/{id}/`
-5. get customers - `api/v1/customers/`
-
-contact table
-
-1. create customer's contact - `api/v1/customers/{id}/contact/`
-2. delete customer's contact - `api/v1/customers/{id}/contact/`
-3. update customer's contact - `api/v1/customers/{id}/contact/`
-4. get customer's contact - `api/v1/customers/{id}/contact/`
-
-publisher table
-
-1. create publisher - `api/v1/publishers/`
-2. delete publisher by pk - `api/v1/publishers/{id}/`
-3. update publisher by pk - `api/v1/publishers/{id}/`
-4. get publisher by pk - `api/v1/publishers/{id}/`
-5. get publishes - `api/v1/publishers/`
-
-language table
-
-1. create language - `api/v1/languages/`
-2. delete language by pk - `api/v1/languages/{id}/`
-3. update language by pk - `api/v1/languages/{id}/`
-4. get language by pk - `api/v1/languages/{id}/`
-5. get languages - `api/v1/languages/`
-
-book table
-
-1. create book - `api/v1/books/`
-2. delete book by pk - `api/v1/books/{id}/`
-3. update book by pk - `api/v1/books/{id}/`
-4. get book by pk - `api/v1/books/{id}/`
-5. get books - `api/v1/books/`
+```bash
+├── manage.py
+└── core
+    ├── __init__.py
+    ├── asgi.py
+    ├── settings.py
+    ├── urls.py
+    ├── wsgi.py
+└── apps
+    ├── __init__.py
+    └── books
+        ├── __init__.py
+        └── migrations
+        ├── admin.py
+        ├── apps.py
+        ├── models.py
+        ├── tests.py
+        ├── urls.py
+        ├── views.py
+    └── orders
+        ├── __init__.py
+        └── migrations
+        ├── admin.py
+        ├── apps.py
+        ├── models.py
+        ├── tests.py
+        ├── urls.py
+        ├── views.py
+    └── payments
+        ├── __init__.py
+        └── migrations
+        ├── admin.py
+        ├── apps.py
+        ├── models.py
+        ├── tests.py
+        ├── urls.py
+        ├── views.py
+    └── reviews
+        ├── __init__.py
+        └── migrations
+        ├── admin.py
+        ├── apps.py
+        ├── models.py
+        ├── tests.py
+        ├── urls.py
+        ├── views.py
+    └── users
+        ├── __init__.py
+        └── migrations
+        ├── admin.py
+        ├── apps.py
+        ├── models.py
+        ├── tests.py
+        ├── urls.py
+        ├── views.py
+```
 
 ## Database schema
 
-customer
+### User
 
 - id
-- first_name
-- last_name
 - username
-- password
-
-contact
-
-- id
-- customer_id
 - email
-- address
-- phone
-
-publisher
-
-- id
-- name
-- description
-
-language
-
-- id
-- lang
-
-author
-
-- id
+- password
 - first_name
 - last_name
-- bio
 
-genre
-
-- id 
-- name
-
-book
+### Order
 
 - id
-- title
-- description
-- price
+- user FK
+- order_date
+- total_price
+- status
+
+### OrderItem
+
+- id
+- order FK
+- book FK
 - quantity
-- isbn
-- languege FK
-- pages
-- publisher FK
-- published_date 
-- authors
-- genres
+- unit_price
+
+### Payment
+
+- id
+- order FK
+- payment_date
+- amount
+- payment_method
+
+### Review
+
+- id
+- user FK
+- book FK
+- rating
+- comment
+- review_date
+
+### BookAuthor (Many-to-Many Relationship Table)
+
+- id
+- book FK
+- author FK
+
+### BookGenre (Many-to-Many Relationship Table)
+
+- id
+- book FK
+- genre FK
+
+## API endpoints
+
+| Endpoint                      | Method | Description                                      |
+|-------------------------------|--------|--------------------------------------------------|
+| `/api/v1/books/`                 | GET    | Get a list of all books                          |
+| `/api/v1/books/{book_id}/`       | GET    | Get details of a specific book                   |
+| `/api/v1/books/{book_id}/reviews/` | GET    | Get reviews for a specific book                 |
+| `/api/v1/orders/`                | GET    | Get a list of all orders                         |
+| `/api/v1/orders/{order_id}/`     | GET    | Get details of a specific order                  |
+| `/api/v1/orders/`                | POST   | Place a new order                                |
+| `/api/v1/orders/{order_id}/items/` | GET    | Get items in a specific order                   |
+| `/api/v1/payments/`              | GET    | Get a list of all payments                       |
+| `/api/v1/payments/{payment_id}/` | GET    | Get details of a specific payment                |
+| `/api/v1/books/{book_id}/reviews/` | POST   | Add a review for a specific book                |
+| `/api/v1/users/{user_id}/reviews/` | GET    | Get reviews posted by a specific user            |
+| `/api/v1/users/{user_id}/orders/`  | GET    | Get orders placed by a specific user             |
