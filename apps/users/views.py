@@ -8,10 +8,19 @@ from django.core.exceptions import ObjectDoesNotExist
 
 class UsersView(View):
     def get(self, request: HttpRequest) -> JsonResponse:
-        pass
+        users = User.objects.filter(is_staff=False, is_active=True, is_superuser=False)
+
+        result = [model_to_dict(user) for user in users]
+        return JsonResponse(result, safe=False)
     
     def post(self, request: HttpRequest) -> JsonResponse:
-        pass
+        data = json.loads(request.body.decode())
+
+        user = User(username=data.get('username'))
+        user.set_password(data.get('password'))
+        user.save()
+
+        return JsonResponse(model_to_dict(user), status=201)
     
 
 class UserDetailView(View):
