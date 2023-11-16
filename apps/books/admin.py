@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Publisher, Language, Book, Author, Genre
 
-# Register your models here.
+all_models = (Publisher, Language, Book, Author, Genre)
+
+admin.site.register(all_models)
